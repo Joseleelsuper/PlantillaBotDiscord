@@ -11,7 +11,7 @@ pip install -r requirements.txt
 
 ## Configuración del bot
 
-Para hacer que funcione, debes darle dos datos a través del fichero[ `variables.env`](https://github.com/Joseleelsuper/PlantillaBotDiscord/blob/main/variables.env). Uno de ellos es el `token` y el otro el `guild_id`.
+Para hacer que funcione, debes darle dos datos a través del fichero [`variables.env`](https://github.com/Joseleelsuper/PlantillaBotDiscord/blob/main/variables.env). Uno de ellos es el `token` y el otro el `guild_id`.
 
 `token` es el token del bot de Discord. Para obtener el token, debes crear una aplicación de Discord en el [portal de desarrolladores](https://discord.com/developers/applications). Luego, debes dirigirte a la sección de bot y crear un bot. Finalmente, debes copiar el token y pegarlo en el archivo `.env`.
 
