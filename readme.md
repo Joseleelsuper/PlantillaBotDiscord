@@ -15,7 +15,7 @@ Para hacer que funcione, debes darle dos datos a través del fichero `variables.
 
 `token` es el token del bot de Discord. Para obtener el token, debes crear una aplicación de Discord en el [portal de desarrolladores](https://discord.com/developers/applications). Luego, debes dirigirte a la sección de bot y crear un bot. Finalmente, debes copiar el token y pegarlo en el archivo `.env`.
 
-Sobre el guild_id, debes tener activado el modo desarrollador en discord. Puedes activarlo desde las opciones. Cuando lo tengas, dele click derecho al servidor y haga click a `Copiar ID del servidor`
+Sobre el `guild_id`, debes tener activado el modo desarrollador en discord. Puedes activarlo desde las opciones. Cuando lo tengas, dele click derecho al servidor y haga click a `Copiar ID del servidor`
 
 ## Ejecución del bot
 
