@@ -11,9 +11,9 @@
 #Librerías
     #Generales
 import traceback                    #Librería para el manejo de errores
-from datetime import datetime       #Librería para el manejo de fechas y horas
+import datetime                     #Librería para el manejo de fechas y horas
 from dotenv import load_dotenv      #Librería para el manejo de variables de entorno
-import os
+import os                           #Librería que permite el manejo de ficheros y directorios
 
     #Discord
 import discord                      #Librería para el manejo de Discord
