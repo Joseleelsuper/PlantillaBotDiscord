@@ -21,9 +21,9 @@ from discord import app_commands    #Librería para el manejo de comandos de Dis
 from discord.ext import commands    #Librería para el manejo de comandos de Discord
 
 #Variables globales
-load_dotenv()                           #Carga las variables de entorno
+load_dotenv("variables.env")            #Carga las variables de entorno
     #Generales
-GUILD_ID = os.getenv("GUILD_ID")        #ID del servidor
+GUILD_ID = int(os.getenv("GUILD_ID"))   #ID del servidor
 CREADOR_ID = 379658818172354563         #ID del creador del bot
 VERSION = "v1.0.0"                      #Versión del bot
 
@@ -33,7 +33,7 @@ INTENTS = discord.Intents.all()         #Permisos del bot
 Color = discord.Color.orange()          #Color de la barra lateral de los embeds
 
     #Bot
-TOKEN = os.getenv("TOKEN")                                          #Token del bot
+TOKEN = str(os.getenv("TOKEN"))                                     #Token del bot
 commands_bot = commands.Bot(command_prefix = "", intents = INTENTS) #Prefijo de los comandos del bot, en desuso
 PERMISO = 8                                                         #Nivel de permisos del bot
 
