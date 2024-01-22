@@ -24,8 +24,8 @@ from discord.ext import commands    #Librería para el manejo de comandos de Dis
 load_dotenv("variables.env")            #Carga las variables de entorno
     #Generales
 GUILD_ID = int(os.getenv("GUILD_ID"))   #ID del servidor
-CREADOR_ID = 379658818172354563         #ID del creador del bot
-VERSION = "v1.0.0"                      #Versión del bot
+CREADOR_ID = int(os.getenv("CREADOR_ID"))         #ID del creador del bot
+VERSION = str(os.getenv("VERSION"))                     #Versión del bot
 
     #Discord
 GUILD = discord.Object(id = GUILD_ID)   #Guild del servidor
@@ -35,7 +35,7 @@ Color = discord.Color.orange()          #Color de la barra lateral de los embeds
     #Bot
 TOKEN = str(os.getenv("TOKEN"))                                     #Token del bot
 commands_bot = commands.Bot(command_prefix = "", intents = INTENTS) #Prefijo de los comandos del bot, en desuso
-PERMISO = 8                                                         #Nivel de permisos del bot
+PERMISO = int(os.getenv("PERMISO"))                                 #Nivel de permisos del bot
 
 #Definir la inicialización del bot
 class abot(discord.Client):
@@ -89,10 +89,8 @@ async def help(interaction):
     embed = discord.Embed(title = "Comandos", description = "Lista de comandos del bot.", color = Color)
     embed.add_field(name = "/help", value = "Muestra esta lista de comandos.", inline = False)
     embed.add_field(name = "/ping", value = "Muestra el ping del bot.", inline = False)
-    embed.add_field(name = "/info", value = "Muestra información sobre el bot.", inline = False)
     embed.add_field(name = "/invite", value = "Muestra el enlace de invitación del bot.", inline = False)
     embed.add_field(name = "/uptime", value = "Muestra el tiempo que lleva el bot encendido.", inline = False)
-    embed.set_footer(text = "Bot creado por <@{Creador_ID}>")
     await interaction.response.send_message(embed = embed, ephemeral = True)
     
     check(interaction)
@@ -102,22 +100,6 @@ async def help(interaction):
 async def ping(interaction):
     
     await interaction.response.send_message(f"Ping del bot: {round(bot.latency * 1000)}ms", ephemeral = True)
-    
-    check(interaction)
-###################################################################
-    #Comando de información
-@tree.command(name = "info", description = "Muestra información sobre el bot.", guild = GUILD)
-async def info(interaction):
-    
-    embed = discord.Embed(title = "Información", description = "Información sobre el bot.", color = Color)
-    embed.add_field(name = "Nombre", value = bot.user.name, inline = False)
-    embed.add_field(name = "ID", value = bot.user.id, inline = False)
-    embed.add_field(name = "Creador", value = f"<@{CREADOR_ID}>", inline = False)
-    embed.add_field(name = "Versión", value = f"{VERSION}", inline = False)
-    embed.add_field(name = "Librerías", value = "Discord.py", inline = False)
-    embed.add_field(name = "Lenguaje", value = "Python", inline = False)
-    embed.set_footer(text = "Bot creado por <@{CREADOR_ID}>")
-    await interaction.response.send_message(embed = embed, ephemeral = True)
     
     check(interaction)
 ###################################################################
