@@ -11,7 +11,7 @@
 #Librerías
     #Generales
 import traceback                    #Librería para el manejo de errores
-import datetime                     #Librería para el manejo de fechas y horas
+from datetime import datetime       #Librería para el manejo de fechas y horas
 from dotenv import load_dotenv      #Librería para el manejo de variables de entorno
 import os                           #Librería que permite el manejo de ficheros y directorios
 
@@ -21,11 +21,11 @@ from discord import app_commands    #Librería para el manejo de comandos de Dis
 from discord.ext import commands    #Librería para el manejo de comandos de Discord
 
 #Variables globales
-load_dotenv("variables.env")            #Carga las variables de entorno
+load_dotenv("variables.env")        #Carga las variables de entorno
     #Generales
-GUILD_ID = int(os.getenv("GUILD_ID"))   #ID del servidor
-CREADOR_ID = int(os.getenv("CREADOR_ID"))         #ID del creador del bot
-VERSION = str(os.getenv("VERSION"))                     #Versión del bot
+GUILD_ID = int(os.getenv("GUILD_ID"))       #ID del servidor
+CREADOR_ID = int(os.getenv("CREADOR_ID"))   #ID del creador del bot
+VERSION = str(os.getenv("VERSION"))         #Versión del bot
 
     #Discord
 GUILD = discord.Object(id = GUILD_ID)   #Guild del servidor
@@ -74,7 +74,19 @@ def check(interaction):
         print("\n\n")
         traceback.print_exc()
         print("\n\n")
-        print(f"Error al enviar el comando '{interaction.data['name']}' a '{interaction.guild.name}' a la hora '{interaction.created_at}'")
+        print(f"Error al enviar el comando '{interaction.data['name']}' a '{interaction.guild.name}' por '\
+              {interaction.user.name}' a la hora '{interaction.created_at}'")
+
+###################################################################
+###################################################################
+###################################################################
+
+#Eventos
+    #Evento del bot, da la bienvenida por privado a nuevos usuarios
+@bot.event
+async def on_member_join(member):
+    await member.create_dm()
+    await member.dm_channel.send(f"Hola {member.name}, bienvenido al servidor {member.guild.name}.")
 
 ###################################################################
 ###################################################################
