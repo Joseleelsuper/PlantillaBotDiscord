@@ -1,0 +1,18 @@
+{
+    "help":  {
+        "name": "help",
+        "description": "Muestra todos los comandos disponibles que tiene el bot para ofrecer."
+    },
+    "ping": {
+        "name": "ping",
+        "description": "Muestra la latencia del bot."
+    },
+    "invite": {
+        "name": "invite",
+        "description": "Muestra el enlace de invitación del bot."
+    },
+    "uptime": {
+        "name": "uptime",
+        "description": "Muestra el tiempo que el bot ha estado en línea."
+    }
+}
