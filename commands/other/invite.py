@@ -1,10 +1,11 @@
 from discord import Color, Embed, Interaction
 
-async def invite(interaction: Interaction):
+
+async def invite(interaction: Interaction, bot, PERMISO):
     try:
         embed = Embed(
             title="Invitación del bot",
-            description="Puedes invitar al bot a tu servidor con el siguiente [enlace](https://discord.com/api/oauth2/authorize?client_id=890066169474443048&permissions=8&scope=bot%20applications.commands).",
+            description=f"Puedes invitar al bot a tu servidor con el siguiente [enlace](https://discord.com/api/oauth2/authorize?client_id={bot.user.id}&permissions={PERMISO}&scope=bot%20applications.commands).",
             color=Color.orange(),
         )
 

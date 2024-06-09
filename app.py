@@ -125,7 +125,9 @@ async def on_member_join(member):
 # Comando de ayuda
 # Los comandos se ejecutan solamente en su servidor. Para que se ejecuten en cualquier servidor, quitar el parámetro 'guild = Guild'
 @tree.command(
-    name=COMMAND["help"]["name"], description=COMMAND["help"]["description"], guild=GUILD
+    name=COMMAND["help"]["name"],
+    description=COMMAND["help"]["description"],
+    guild=GUILD,
 )
 async def self(interaction):
     await help(interaction)
@@ -134,7 +136,11 @@ async def self(interaction):
 
 ###################################################################
 # Comando de ping
-@tree.command(name=COMMAND["ping"]["name"], description=COMMAND["ping"]["description"], guild=GUILD)
+@tree.command(
+    name=COMMAND["ping"]["name"],
+    description=COMMAND["ping"]["description"],
+    guild=GUILD,
+)
 async def self(interaction):
     await ping(interaction, bot)
     check(interaction)
@@ -143,17 +149,21 @@ async def self(interaction):
 ###################################################################
 # Comando de invitación
 @tree.command(
-    name=COMMAND["invite"]["name"], description=COMMAND["invite"]["description"], guild=GUILD
+    name=COMMAND["invite"]["name"],
+    description=COMMAND["invite"]["description"],
+    guild=GUILD,
 )
 async def self(interaction):
-    await invite(interaction, bot)
+    await invite(interaction, bot, PERMISO)
     check(interaction)
 
 
 ###################################################################
 # Comando de uptime
 @tree.command(
-    name=COMMAND["uptime"]["name"], description=COMMAND["uptime"]["description"], guild=GUILD
+    name=COMMAND["uptime"]["name"],
+    description=COMMAND["uptime"]["description"],
+    guild=GUILD,
 )
 async def self(interaction):
     await uptime(interaction, bot_start_time)
